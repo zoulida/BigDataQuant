@@ -10,8 +10,9 @@ import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter, WeekdayLocator,\
     DayLocator, MONDAY,date2num
 from datetime import datetime
-from matplotlib.finance import candlestick_ohlc
-from mplfinance.
+#from matplotlib.finance import candlestick_ohlc
+import mpl_finance as mpf
+
 
 ssec2015=pd.read_csv(r'E:\Python Quant Book\part 5\027\ssec2015.csv')
 ssec2015=ssec2015.iloc[:,1:]
@@ -34,7 +35,7 @@ ax.xaxis.set_major_formatter(weekFormatter)
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 ax.set_title("上证综指2015年3月份K线图")
-candlestick_ohlc(ax, ssec15list, width=0.7,colorup='r', colordown='g')
+mpf.candlestick_ohlc(ax, ssec15list, width=0.7,colorup='r', colordown='g')
 plt.setp(plt.gca().get_xticklabels(),rotation=50, horizontalalignment='center')
 plt.show()
 
