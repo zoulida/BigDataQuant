@@ -14,7 +14,7 @@ from datetime import datetime
 import mpl_finance as mpf
 
 
-ssec2015=pd.read_csv(r'E:\Python Quant Book\part 5\027\ssec2015.csv')
+ssec2015=pd.read_csv(r'ssec2015.csv')
 ssec2015=ssec2015.iloc[:,1:]
 ssec2015.head(n=3)
 ssec2015.iloc[-3:,:]
