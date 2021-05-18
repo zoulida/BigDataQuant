@@ -41,7 +41,7 @@ plt.show()
 
 
 
-#morning star
+#morning star  早晨之星
 ssec2012=pd.read_csv('ssec2012.csv')
 ssec2012.index=ssec2012.iloc[:,1]
 ssec2012.index=pd.to_datetime(ssec2012.index, format='%Y-%m-%d')
@@ -99,7 +99,8 @@ for i in range(len(Trend)):
 
 for i in range(len(StarSig)):
     if StarSig[i]==1:
-        print(ssec2012.index[i])
+        print('第一次出现早晨之星的时间')
+        print( ssec2012.index[i])
 
 
 ssec201209=ssec2012['2012-08-21':'2012-09-30']
@@ -130,7 +131,7 @@ for i in range(1,len(Close11)):
             Open11[i]>lagClose11[i],\
             Close11[i]<0.5*(lagClose11[i]+lagOpen11[i]),\
             Close11[i]>lagOpen11[i]]):
-        Cloud[i]=1
+        Cloud[i]=1# 乌云盖顶的标记
 
 # 定 义 前 期 上 升 趋 势
 Trend=pd.Series(0,index=Close11.index)
