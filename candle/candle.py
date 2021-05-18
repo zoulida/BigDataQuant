@@ -2,7 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter, WeekdayLocator,\
     DayLocator, MONDAY,date2num
-from matplotlib.finance import  candlestick_ohlc
+#from matplotlib.finance import  candlestick_ohlc
+from mpl_finance import candlestick_ohlc
 import numpy as np
 
 
