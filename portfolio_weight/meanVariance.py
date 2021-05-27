@@ -101,7 +101,7 @@ minVar.frontierCurve()
 train_set=sh_return['2014']
 test_set=sh_return['2015']
 varMinimizer=MeanVariance(train_set)
-goal_return=0.003
+goal_return=0.003 #目标收益设置为固定值
 portfolio_weight=varMinimizer.minVar(goal_return)
 print('portfolio_weight =', portfolio_weight)
 
