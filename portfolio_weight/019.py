@@ -21,6 +21,7 @@ plt.plot(sd_mat[2,:],mean,label='0')
 plt.plot(sd_mat[3,:],mean,label='0.5')
 plt.plot(sd_mat[4,:],mean,label='1')
 plt.legend(loc='upper left')
+plt.show()
 
 import pandas as pd
 stock=pd.read_table('stock.txt',sep='\t',index_col='Trddt')
@@ -53,6 +54,7 @@ plt.legend(loc='lower center',bbox_to_anchor=(0.5,-0.3),
 cumreturn.plot()
 plt.title('Cumulative Return of 5 Stocks(2014-2015)')
 sh_return.corr()
+plt.show()
 
 import ffn
 from scipy import linalg
@@ -76,6 +78,7 @@ class MeanVariance:
         goals=[x/500000 for x in range(-100,4000)]
         variances=list(map(lambda x: self.calVar(self.minVar(x)[1,:].astype(np.float)),goals))
         plt.plot(variances,goals)
+        plt.show()
     def meanRet(self,fracs):
         meanRisky=ffn.to_returns(self.returns).mean()
         assert len(meanRisky)==len(fracs), 'Length of fractions must be equal to number of assets'
@@ -93,7 +96,8 @@ test_set=sh_return['2015']
 varMinimizer=MeanVariance(train_set)
 goal_return=0.003
 portfolio_weight=varMinimizer.minVar(goal_return)
-portfolio_weight
+print('portfolio_weight =', portfolio_weight)
+
 test_return=np.dot(test_set,
                    np.array([portfolio_weight[1,:].astype(np.float)]).swapaxes(0,1))
 test_return=pd.DataFrame(test_return,index=test_set.index)
@@ -107,6 +111,7 @@ sim_cum_return=(1+sim_return).cumprod()
 
 plt.plot(sim_cum_return.index,sim_cum_return,color='green')
 plt.plot(test_cum_return.index,test_cum_return)
+plt.show()
 
 def blacklitterman(returns,tau, P, Q):
   mu=returns.mean()
